@@ -1,0 +1,78 @@
+let gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    rename = require('gulp-rename'),
+    browserSync = require('browser-sync'),
+    autoprefixer = require('gulp-autoprefixer'), //для старых версий броузера
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    cssmin = require('gulp-cssmin');
+
+
+gulp.task('sass', function () {
+    return gulp.src('app/scss/style.scss') //поиск файла
+        .pipe(sass({outputStyle: 'compressed'})) //компиляция файла   .pipe(sass(указывается метод кломпиляции)) 
+        .pipe(rename({suffix : '.min'}))
+        .pipe(autoprefixer({
+            overrideBrowserslist: ['last 8 versions']
+        }))
+        .pipe(gulp.dest('app/css')) //вывод файла
+        .pipe(browserSync.reload({stream: true}));
+});
+
+
+
+gulp.task('style', function(){
+    return gulp.src([
+        'node_modules/normalize.css/normalize.css', 
+        'node_modules/slick-carousel/slick/slick.css', 
+        'node_modules/magnific-popup/dist/magnific-popup.css'  
+    ])
+    .pipe(concat('libs.min.css'))  //объединенние слик и попап в один файл
+    .pipe(cssmin()) //сжимаем файл
+    .pipe(gulp.dest('app/css'));
+});
+
+
+
+gulp.task('script', function(){
+    return gulp.src([
+        'node_modules/slick-carousel/slick/slick.js', 
+        'node_modules/magnific-popup/dist/jquery.magnific-popup.js'  
+    ])
+    .pipe(concat('libs.min.js'))  //объединенние слик и попап в один файл
+    .pipe(uglify()) //сжимаем файл
+    .pipe(gulp.dest('app/js'));
+});
+
+
+
+
+
+gulp.task('html', function(){
+    return gulp.src('app/*.html')
+    .pipe(browserSync.reload({stream: true}));
+});
+
+gulp.task('js', function(){
+    return gulp.src('app/js/*.js')
+    .pipe(browserSync.reload({stream: true}));
+});
+
+
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        server: {
+            baseDir: "app/"
+        }
+    });
+});
+
+
+gulp.task('watch', function () {
+    gulp.watch('app/scss/style.scss', gulp.parallel('sass'));
+    gulp.watch('app/*.html', gulp.parallel('html'));
+    gulp.watch('app/js/*.js', gulp.parallel('js'));
+});
+
+gulp.task('default', gulp.parallel('style', 'script', 'sass', 'watch', 'browser-sync'));
+
