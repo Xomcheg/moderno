@@ -1,15 +1,5 @@
-html{
-    box-sizing: border-box;
-}
-*,
-*::before,
-*::after{
-    box-sizing: inherit;
-}
-body {
-    background-color: blue;
-}
-.box {
-    display: flex;
-  
-}
+@import 'vars';
+@import 'global';
+
+
+
