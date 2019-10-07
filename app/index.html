@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/libs.min.css">
     <link rel="stylesheet" href="css/style.min.css">
@@ -194,7 +194,8 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <a class="header__btn-login header__btn header__btn-login " href="#">Login</a>
+                                <a class="header__btn-login header__btn header__btn-login" data-fancybox
+                                    data-src="#modal" href="javascript:;">Login</a>
                                 <a class="header__btn-logout header__btn header__btn-login--off " href="#">logout</a>
                                 <a class="header__btn-register header__btn header__btn-login" href="#">Register</a>
                             </div>
@@ -1185,6 +1186,25 @@
             </div>
         </footer>
     </div>
+    <div id="modal">
+        <div class="login__wrapper">
+            <div class="login__title">
+                login
+            </div>
+            <form>
+                <label class="login__label-name" for="">
+                    <input type="text" placeholder="Name" required>
+                </label>
+                <label class="login__label-pass" for="">
+                    <input type="text" placeholder="Password" required>
+                </label>
+                <button type="submit">Submit</button>
+                <a class="creat-acc" href="#">Creat An Account?</a>
+                <a class="lost-pass" href="@">Lost Password?</a>
+            </form>
+        </div>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/libs.min.js"></script>
     <script src="js/main.js"></script>
