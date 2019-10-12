@@ -9,7 +9,7 @@ let gulp = require('gulp'),
 
 
 gulp.task('sass', function () {
-    return gulp.src('app/scss/style.scss') //поиск файла
+    return gulp.src('app/scss/**/*.scss') //поиск файла
         .pipe(sass({outputStyle: 'compressed'})) //компиляция файла   .pipe(sass(указывается метод кломпиляции)) 
         .pipe(rename({suffix : '.min'}))
         .pipe(autoprefixer({
@@ -24,8 +24,14 @@ gulp.task('sass', function () {
 gulp.task('style', function(){
     return gulp.src([
         'node_modules/normalize.css/normalize.css', 
-        'node_modules/slick-carousel/slick/slick.css', 
-        'node_modules/magnific-popup/dist/magnific-popup.css'  
+        'node_modules/slick-carousel/slick/slick.css',
+        'node_modules/rateyo/src/jquery.rateyo.css',  
+        'node_modules/magnific-popup/dist/magnific-popup.css',
+        'node_modules/ion-rangeslider/css/ion.rangeSlider.css',
+        'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css',
+        'node_modules/jquery-form-styler/dist/jquery.formstyler.css',
+        'node_modules/jquery-form-styler/dist/jquery.formstyler.theme.css'
+        
     ])
     .pipe(concat('libs.min.css'))  //объединенние слик и попап в один файл
     .pipe(cssmin()) //сжимаем файл
@@ -37,7 +43,12 @@ gulp.task('style', function(){
 gulp.task('script', function(){
     return gulp.src([
         'node_modules/slick-carousel/slick/slick.js', 
-        'node_modules/magnific-popup/dist/jquery.magnific-popup.js'  
+        'node_modules/magnific-popup/dist/jquery.magnific-popup.js',  
+        'node_modules/mixitup/dist/mixitup.js',
+        'node_modules/rateyo/src/jquery.rateyo.js',
+        'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
+        'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js',
+        'node_modules/jquery-form-styler/dist/jquery.formstyler.js'
     ])
     .pipe(concat('libs.min.js'))  //объединенние слик и попап в один файл
     .pipe(uglify()) //сжимаем файл
@@ -69,7 +80,7 @@ gulp.task('browser-sync', function() {
 
 
 gulp.task('watch', function () {
-    gulp.watch('app/scss/style.scss', gulp.parallel('sass'));
+    gulp.watch('app/scss/**/*scss', gulp.parallel('sass'));
     gulp.watch('app/*.html', gulp.parallel('html'));
     gulp.watch('app/js/*.js', gulp.parallel('js'));
 });
