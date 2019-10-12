@@ -77,6 +77,8 @@ li {
     background-color: #f4f6f5;
     &__inner{
         padding: 45px 0px 40px;
+        overflow: hidden;
+        width: 1200px;
     }
     &__list{
         li{
@@ -116,4 +118,7 @@ li {
         font-size: 14px;
         color: $green;
     }
+}
+#modal{
+    display: none;
 }
