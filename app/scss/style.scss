@@ -103,6 +103,9 @@
 .header__box{
     display: flex;
     align-items: center;
+    .icon-shopping-cart{
+        background-color: #f5f5f5;
+    }
 }
 .header__btn-login--off{
     display: none;
@@ -727,6 +730,9 @@ background-color: $yellow;
 .footer__copy {
     border-top: 1px solid #424d53;
 }
+.footer__col-address{
+    max-width: 275px;
+}
 .footer__copy-text{
     text-align: center;
     font-size: 15px;
@@ -1328,9 +1334,6 @@ button.icon-unsorted{
     border: 1px solid #dcdcdc;
     margin-bottom: 28px;
 }
-
-
-
 .product-one__inner{
     display: flex;
     justify-content: space-between;
@@ -1418,6 +1421,45 @@ button.icon-unsorted{
     display: flex;
     justify-content: space-between;
     padding: 30px 0;
+    .jq-selectbox__select {
+        height: 32px;
+        padding: 0 45px 0 10px;
+        border: 1px solid #CCC;
+        border-bottom-color: none;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        font: 14px/32px Arial,sans-serif;
+        color: #333;
+        text-shadow: none;
+    }
+    .jq-selectbox__trigger {
+        border-left: none;
+    }
+    .jq-selectbox__trigger-arrow{
+        display: none;
+        position: relative;
+    }
+    .jq-selectbox__trigger{
+        position: relative;
+    }
+    .jq-selectbox__trigger::before{
+        content: "\f0d7";
+        position: absolute;
+        color: $green;
+        font-family: 'icomoon';
+        font-size: 13px;
+        top: -30px;
+        left: 80px;
+    
+    }
+    .jq-selectbox__select-text{
+        margin-left: 5px;
+    }
+
+
+
+
 }
 .price__product{
     font-size: 22px;
@@ -1429,7 +1471,6 @@ button.icon-unsorted{
         box-shadow: 0px 1px 2px 0px rgba(69, 90, 100, 0.75);
         margin-bottom: 7px;
         border: none;
-        
         color: #fff;
         font-size: 16px;
         font-weight: 700;
@@ -1439,17 +1480,18 @@ button.icon-unsorted{
         padding: 17px 5px 15px;
         width: 100%;
         cursor: pointer;
-        
         &::before{
             font-weight: 400;
             padding-right: 8px;
             font-family: 'icomoon';
         }
     }
-    
 }
 .icon-shopping-cart{
-      background-color: $grey;  
+      background-color: $green;  
+}
+.icon-heart-o{
+    background-color: #42a5f5;
 }
 
 
@@ -1613,6 +1655,7 @@ button.icon-unsorted{
 }
 .about__inner{
     padding: 0px 50px;
+    padding-bottom: 30px;
 }
 .about__box{
     h3{
@@ -1926,6 +1969,29 @@ button.icon-unsorted{
         border: 1px solid #dedede;
         background-color: #f9f9f9;
         padding: 0 10px;
+    }
+    .jq-selectbox.jqselect{
+        width: 100%;
+        max-width: 540px;
+    }
+    .jq-selectbox__select {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 45px 0 10px;
+        border: 1px solid #dedede;
+        border-bottom-color: none;
+        border-radius: 0;
+        background: #f9f9f9;;
+        box-shadow: none;
+        font: 'Roboto-Regular', sans-serif;
+        color: #707070;
+        text-shadow: none;
+    }
+    .jq-selectbox__trigger{
+        border-left: none;
+    }
+    .jq-selectbox__dropdown{
+        top: 40px;
     }
 }
 //end settings
